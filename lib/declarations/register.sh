@@ -17,6 +17,8 @@ register () {
   type=$(basename $file '.sh')
   if [ -e "$BORK_SCRIPT_DIR/$file" ]; then
     file="$BORK_SCRIPT_DIR/$file"
+  elif [ -e "$BORK_CURRENT_SCRIPT_DIR/$file" ]; then
+    file="$BORK_CURRENT_SCRIPT_DIR/$file"
   else
     exit 1
   fi

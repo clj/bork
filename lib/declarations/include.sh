@@ -7,11 +7,13 @@ include () {
     if [ -e $incl_script ]; then
         target_dir=$(dirname $incl_script)
         bag push include_directories "$target_dir"
+        BORK_CURRENT_SCRIPT_DIR="$(realpath $target_dir)"
         case $operation in
             compile) compile_file "$incl_script" ;;
             *) . $incl_script ;;
         esac
         bag pop include_directories
+        BORK_CURRENT_SCRIPT_DIR="$(realpath $(bag read include_directories))"
     else
         echo "include: $incl_script: No such file" 1>&2
         exit 1

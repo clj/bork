@@ -31,6 +31,7 @@ BORK_SCRIPT_DIR=$PWD
 if [ -n "$1" ]; then
     BORK_SCRIPT_DIR=$(getDir "$1")
 fi
+BORK_CURRENT_SCRIPT_DIR=$BORK_SCRIPT_DIR
 BORK_WORKING_DIR=$PWD
 
 for file in $BORK_SOURCE_DIR/lib/helpers/*.sh \
